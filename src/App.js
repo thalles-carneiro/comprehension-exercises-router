@@ -12,13 +12,17 @@ class App extends Component {
         <nav>
           <ul>
             <li><Link to="/" > Home </Link></li>
-            <li><Link to="/users" > Users </Link></li>
             <li><Link to="/about" > About </Link></li>
+            <li><Link to="/users" > Users </Link></li>
           </ul>
         </nav>
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
-        <Route exact path="/users" component={Users} />
+        <Route
+          exact
+          path="/users/:id"
+          render={(routeProps) => <Users {...routeProps} greetingsMessage="Good Morning" />} 
+        />
       </Router>
     );
   }
